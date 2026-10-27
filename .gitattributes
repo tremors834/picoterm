@@ -5,3 +5,4 @@
 *.py text eol=lf
 *.asm text eol=lf
 *.lua text eol=lf
+*.webp binary

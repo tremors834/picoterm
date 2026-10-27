@@ -8,6 +8,8 @@ emulates the Heathkit HK-21 packet TNC) through the CoCo's 4-pin serial
 No setup screens: 1200 baud, 8 data bits, no parity, 1 stop bit, 80 columns.
 It wakes up the Pocket Pico by itself and shows the `cmd:` prompt.
 
+![PicoTerm on a CoCo 3, talking to a Pocket Pico](docs/images/picoterm-running.webp)
+
 Written in 6809 assembly. Needs a CoCo 3 with Disk BASIC (tested on a real
 CoCo 3 with a CoCo SDC) and an RS-232 level converter cable (see
 [docs/cable.md](docs/cable.md)).
@@ -21,6 +23,11 @@ CoCo 3 with a CoCo SDC) and an RS-232 level converter cable (see
        RUN"PICOTERM"
 
 3. PicoTerm wakes up the Pocket Pico and you get `cmd:`.
+
+<p>
+<img src="docs/images/starting-picoterm.webp" alt="Mounting PICOTERM.DSK and running PicoTerm from Disk BASIC" width="300">
+<img src="docs/images/coco3-setup.webp" alt="The CoCo 3 with PicoTerm connected to the Pocket Pico" width="300">
+</p>
 
 Text from the Pico is white; PicoTerm's own messages are yellow.
 
