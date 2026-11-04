@@ -23,7 +23,74 @@ Never connect the Pico straight to the CoCo.
 | 3 | ground |
 | 4 | CoCo transmit (TXD out) |
 
-## Option A: 3.3 V converter (MAX3232 / SP3232), no resistors
+There are three ways to build it below. The first is the cable I use; the
+other two work too.
+
+## My cable: LTC1327 at 3.3 V (built and in use)
+
+![The finished LTC1327 cable](images/ltc1327-finished.webp)
+
+A bare **LTC1327CN** (Linear Technology, now Analog Devices) on a 4 x 6 cm
+perfboard. The chip was donated by Peter, KF7PSM. It runs on 3.3 V, so its
+TTL output can never go above what the Pico takes, and no divider resistors
+are needed. Its outputs are EIA/TIA-562 levels (about +/-5 V), which the
+CoCo's RS-232 input reads fine, and its inputs take the CoCo's +/-12 V.
+
+![Schematic of the LTC1327 cable](images/ltc1327-cable-schematic.svg)
+
+**Parts**
+
+- LTC1327CN, 28-pin DIP, in a 28-pin socket
+- Five 0.1 uF ceramic capacitors (marked 104)
+- AMS1117-3.3 regulator board
+- 5 V wall adapter (mine is 600 mA, measures 5.09 V)
+- 4 x 6 cm perfboard, 3.5 mm TRS plug, 4-pin DIN plug, cable
+
+**Connections** (we use driver 1 and receiver 1)
+
+| LTC1327 pin | Name | Connect to |
+|---|---|---|
+| 1 | V+ | 0.1 uF to ground |
+| 2 | VCC | 3.3 V, plus 0.1 uF to ground |
+| 3, 4 | C1+, C1- | 0.1 uF between them |
+| 5 | DR1 OUT | CoCo DIN 2 (CoCo receive) |
+| 6 | RX1 IN | CoCo DIN 4 (CoCo transmit) |
+| 13 | ON/OFF | 3.3 V (low = shut down, must not float) |
+| 17 | GND | ground: regulator, Pico sleeve, CoCo DIN 3 |
+| 19, 23 | DR3 IN, DR2 IN | 3.3 V (unused driver inputs, must not float) |
+| 24 | RX1 OUT | Pico tip (Pico receive) |
+| 25 | DR1 IN | Pico ring (Pico transmit) |
+| 26, 27 | C2-, C2+ | 0.1 uF between them |
+| 28 | V- | 0.1 uF to ground |
+
+All other pins (7-12, 14-16, 18, 20-22) are left open. The wall adapter feeds
+the AMS1117's input; its 3.3 V output feeds the chip.
+
+**Build it in steps, with a meter check after each.** Socket and capacitors,
+then the regulator, then the 3.3 V and ground wiring, then the plugs. Leave
+the chip out until the regulator's output reads 3.3 V at the empty socket.
+
+**Readings on mine**, chip in, nothing plugged into the Pico:
+
+| Point | Reading |
+|---|---|
+| Regulator output / pin 2 | 3.26 V |
+| Pin 1 (V+) | +5.3 V |
+| Pin 28 (V-) | -5.2 V |
+| Tip to sleeve | 3.26 V (never above 3.3 V) |
+| DIN 2 to DIN 3, idle | -5.19 V |
+
+![The finished board](images/ltc1327-board.webp)
+
+**Power order:** wall adapter first, then plug into the Pico. Shutting down:
+unplug from the Pico first, then the adapter. The red LED on the regulator
+board shows the cable has power.
+
+**Case:** a 3D-printable case for this board is in [../enclosure](../enclosure).
+
+![The case, with the power LED showing through its window](images/ltc1327-case-led.webp)
+
+## Option A: 3.3 V converter board (MAX3232 / SP3232), no resistors
 
 A MAX3232 or SP3232 board powered from 3.3 V (for example an AMS1117-3.3
 regulator board) has TTL outputs that are safe for the Pico as they are.
@@ -58,7 +125,8 @@ about 2.9 V typical and never less than about 2.2 V, above the Pico's 2.0 V
 lower than 1.8k (the tip can go over 3.3 V) or much higher than 2.2k (too
 little margin).
 
-This is the cable PicoTerm was first tested with: ICL232 channel 1
+This is the cable PicoTerm was first tested with, a test cable donated by
+Peter, KF7PSM (12 V supply, 7805 regulator, four 22 uF capacitors): ICL232 channel 1
 (T1 IN 11, R1 OUT 12, R1 IN 13, T1 OUT 14, GND 15, VCC 16), T1 OUT to DIN 2,
 R1 IN to DIN 4, GND to DIN 3.
 
@@ -66,10 +134,11 @@ R1 IN to DIN 4, GND to DIN 3.
 
 With the cable powered and nothing plugged in:
 
-1. Converter supply: 3.3 V (option A) or 5 V (option B).
-2. Tip to sleeve: about 2.9 V (option B) or about 3.3 V (option A). The
-   receive line idles high.
-3. DIN 2 to DIN 3: about -5 to -9 V (RS-232 idle).
+1. Converter supply: 3.3 V (LTC1327 and option A) or 5 V (option B).
+2. Tip to sleeve: about 3.3 V (LTC1327 and option A) or about 2.9 V
+   (option B). The receive line idles high.
+3. DIN 2 to DIN 3: about -5 V (LTC1327) or -5 to -9 V (options A and B).
+   RS-232 idle is negative.
 4. Plug the DIN into the CoCo (CoCo off first), turn it on: the tip should
    still read the same as in step 2.
 

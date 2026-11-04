@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="820" viewBox="0 0 1100 820" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#000"/>
+    </marker>
+    <g id="gnd">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="2"/>
+      <line x1="-12" y1="8" x2="12" y2="8" stroke="#000" stroke-width="2"/>
+      <line x1="-7" y1="13" x2="7" y2="13" stroke="#000" stroke-width="2"/>
+      <line x1="-3" y1="18" x2="3" y2="18" stroke="#000" stroke-width="2"/>
+    </g>
+  </defs>
+  <rect width="1100" height="820" fill="#fff"/>
+
+  <text x="550" y="34" text-anchor="middle" font-size="22" font-weight="bold">CoCo 3 RS-232 to 3.3 V TTL Cable (LTC1327)</text>
+  <text x="550" y="56" text-anchor="middle" font-size="13" fill="#444">N7WDZ · built and tested in the fall of 2026 · PicoTerm project</text>
+
+  <g stroke="#000" stroke-width="2" fill="none">
+    <!-- Wall adapter -->
+    <rect x="40" y="80" width="130" height="70"/>
+    <!-- AMS1117 board -->
+    <rect x="210" y="80" width="130" height="70"/>
+    <!-- adapter + to VIN -->
+    <line x1="170" y1="100" x2="210" y2="100"/>
+    <!-- adapter - to ground -->
+    <line x1="105" y1="150" x2="105" y2="175"/>
+    <!-- AMS GND -->
+    <line x1="275" y1="150" x2="275" y2="175"/>
+    <!-- 3.3 V bus -->
+    <line x1="340" y1="100" x2="720" y2="100"/>
+    <line x1="450" y1="100" x2="450" y2="190"/>
+    <line x1="540" y1="100" x2="540" y2="190"/>
+    <line x1="630" y1="100" x2="630" y2="190"/>
+    <line x1="720" y1="100" x2="720" y2="190"/>
+    <!-- VCC decoupling cap -->
+    <line x1="395" y1="100" x2="395" y2="137"/>
+    <line x1="381" y1="137" x2="409" y2="137" stroke-width="3"/>
+    <line x1="381" y1="145" x2="409" y2="145" stroke-width="3"/>
+    <line x1="395" y1="145" x2="395" y2="165"/>
+
+    <!-- LTC1327 body -->
+    <rect x="420" y="190" width="340" height="350" stroke-width="2.5"/>
+
+    <!-- TRS plug -->
+    <rect x="40" y="270" width="160" height="170"/>
+    <line x1="200" y1="300" x2="420" y2="300"/>
+    <line x1="200" y1="360" x2="420" y2="360"/>
+    <line x1="200" y1="410" x2="240" y2="410"/>
+    <line x1="240" y1="410" x2="240" y2="425"/>
+
+    <!-- DIN plug -->
+    <rect x="900" y="270" width="160" height="190"/>
+    <line x1="760" y1="300" x2="900" y2="300"/>
+    <line x1="760" y1="360" x2="900" y2="360"/>
+    <line x1="860" y1="410" x2="900" y2="410"/>
+    <line x1="860" y1="410" x2="860" y2="425"/>
+
+    <!-- bottom pins -->
+    <line x1="450" y1="540" x2="450" y2="600"/>
+    <line x1="436" y1="600" x2="464" y2="600" stroke-width="3"/>
+    <line x1="436" y1="608" x2="464" y2="608" stroke-width="3"/>
+    <line x1="450" y1="608" x2="450" y2="628"/>
+
+    <line x1="505" y1="540" x2="505" y2="600"/>
+    <line x1="491" y1="600" x2="519" y2="600" stroke-width="3"/>
+    <line x1="491" y1="608" x2="519" y2="608" stroke-width="3"/>
+    <line x1="505" y1="608" x2="505" y2="628"/>
+
+    <line x1="560" y1="540" x2="560" y2="595"/>
+    <line x1="610" y1="540" x2="610" y2="595"/>
+    <line x1="560" y1="595" x2="581" y2="595"/>
+    <line x1="581" y1="581" x2="581" y2="609" stroke-width="3"/>
+    <line x1="589" y1="581" x2="589" y2="609" stroke-width="3"/>
+    <line x1="589" y1="595" x2="610" y2="595"/>
+
+    <line x1="655" y1="540" x2="655" y2="595"/>
+    <line x1="705" y1="540" x2="705" y2="595"/>
+    <line x1="655" y1="595" x2="676" y2="595"/>
+    <line x1="676" y1="581" x2="676" y2="609" stroke-width="3"/>
+    <line x1="684" y1="581" x2="684" y2="609" stroke-width="3"/>
+    <line x1="684" y1="595" x2="705" y2="595"/>
+
+    <line x1="745" y1="540" x2="745" y2="628"/>
+  </g>
+
+  <!-- signal direction arrows -->
+  <g stroke="#000" stroke-width="2">
+    <line x1="345" y1="300" x2="375" y2="300" marker-end="url(#arr)"/>
+    <line x1="385" y1="360" x2="355" y2="360" marker-end="url(#arr)"/>
+    <line x1="815" y1="300" x2="845" y2="300" marker-end="url(#arr)"/>
+    <line x1="855" y1="360" x2="825" y2="360" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- junction dots -->
+  <g fill="#000">
+    <circle cx="395" cy="100" r="4"/>
+    <circle cx="450" cy="100" r="4"/>
+    <circle cx="540" cy="100" r="4"/>
+    <circle cx="630" cy="100" r="4"/>
+  </g>
+
+  <!-- grounds -->
+  <use href="#gnd" x="105" y="175"/>
+  <use href="#gnd" x="275" y="175"/>
+  <use href="#gnd" x="395" y="165"/>
+  <use href="#gnd" x="240" y="425"/>
+  <use href="#gnd" x="860" y="425"/>
+  <use href="#gnd" x="450" y="628"/>
+  <use href="#gnd" x="505" y="628"/>
+  <use href="#gnd" x="745" y="628"/>
+
+  <!-- power labels -->
+  <g font-size="13">
+    <text x="105" y="108" text-anchor="middle" font-weight="bold">Wall adapter</text>
+    <text x="105" y="126" text-anchor="middle">5 V, 600 mA</text>
+    <text x="105" y="142" text-anchor="middle" fill="#444">(5.09 V)</text>
+    <text x="275" y="117" text-anchor="middle" font-weight="bold">AMS1117-3.3</text>
+    <text x="275" y="132" text-anchor="middle" font-size="12">regulator board</text>
+    <text x="222" y="98" font-size="11">VIN</text>
+    <text x="330" y="98" font-size="11" text-anchor="end">OUT</text>
+    <text x="275" y="146" font-size="11" text-anchor="middle">GND</text>
+    <text x="190" y="94" font-size="12" text-anchor="middle">+5 V</text>
+    <text x="760" y="96" font-size="13" font-weight="bold">+3.3 V</text>
+    <text x="760" y="112" font-size="12" fill="#444">(3.26 V)</text>
+    <text x="385" y="163" font-size="11" text-anchor="end">0.1 µF</text>
+  </g>
+
+  <!-- chip labels -->
+  <text x="590" y="355" text-anchor="middle" font-size="22" font-weight="bold">LTC1327CN</text>
+  <text x="590" y="378" text-anchor="middle" font-size="13" fill="#444">28-pin DIP, in a socket</text>
+  <g font-size="12">
+    <text x="450" y="210" text-anchor="middle">VCC</text>
+    <text x="540" y="210" text-anchor="middle">ON/OFF</text>
+    <text x="630" y="210" text-anchor="middle">DR3 IN</text>
+    <text x="720" y="210" text-anchor="middle">DR2 IN</text>
+    <text x="456" y="185" font-size="11">2</text>
+    <text x="546" y="185" font-size="11">13</text>
+    <text x="636" y="185" font-size="11">19</text>
+    <text x="726" y="185" font-size="11">23</text>
+
+    <text x="428" y="304">DR1 IN</text>
+    <text x="428" y="364">RX1 OUT</text>
+    <text x="414" y="294" font-size="11" text-anchor="end">25</text>
+    <text x="414" y="354" font-size="11" text-anchor="end">24</text>
+
+    <text x="752" y="304" text-anchor="end">DR1 OUT</text>
+    <text x="752" y="364" text-anchor="end">RX1 IN</text>
+    <text x="766" y="294" font-size="11">5</text>
+    <text x="766" y="354" font-size="11">6</text>
+
+    <text x="450" y="530" text-anchor="middle">V+</text>
+    <text x="505" y="530" text-anchor="middle">V−</text>
+    <text x="560" y="530" text-anchor="middle">C1+</text>
+    <text x="610" y="530" text-anchor="middle">C1−</text>
+    <text x="655" y="530" text-anchor="middle">C2+</text>
+    <text x="705" y="530" text-anchor="middle">C2−</text>
+    <text x="745" y="530" text-anchor="middle">GND</text>
+    <text x="455" y="556" font-size="11">1</text>
+    <text x="510" y="556" font-size="11">28</text>
+    <text x="565" y="556" font-size="11">3</text>
+    <text x="615" y="556" font-size="11">4</text>
+    <text x="660" y="556" font-size="11">27</text>
+    <text x="710" y="556" font-size="11">26</text>
+    <text x="750" y="556" font-size="11">17</text>
+
+    <text x="432" y="622" font-size="11" text-anchor="end">0.1 µF</text>
+    <text x="525" y="604" font-size="11">0.1 µF</text>
+    <text x="585" y="628" font-size="11" text-anchor="middle">0.1 µF</text>
+    <text x="680" y="628" font-size="11" text-anchor="middle">0.1 µF</text>
+    <text x="440" y="580" font-size="11" text-anchor="end" fill="#444">+5.3 V</text>
+    <text x="500" y="580" font-size="11" text-anchor="end" fill="#444">−5.2 V</text>
+  </g>
+
+  <!-- TRS labels -->
+  <g font-size="13">
+    <text x="120" y="232" text-anchor="middle" font-weight="bold">3.5 mm TRS plug</text>
+    <text x="120" y="248" text-anchor="middle" font-size="12">to Pocket Pico</text>
+    <text x="120" y="262" text-anchor="middle" font-size="12">TTL jack (3.3 V)</text>
+    <text x="194" y="304" text-anchor="end" font-size="12">Ring</text>
+    <text x="194" y="364" text-anchor="end" font-size="12">Tip</text>
+    <text x="194" y="414" text-anchor="end" font-size="12">Sleeve</text>
+    <text x="210" y="292" font-size="12">Pico TX (0 / 3.3 V)</text>
+    <text x="210" y="352" font-size="12">Pico RX (0 / 3.3 V)</text>
+    <text x="250" y="414" font-size="12">GND</text>
+  </g>
+
+  <!-- DIN labels -->
+  <g font-size="13">
+    <text x="980" y="232" text-anchor="middle" font-weight="bold">4-pin DIN plug</text>
+    <text x="980" y="248" text-anchor="middle" font-size="12">to CoCo 3</text>
+    <text x="980" y="262" text-anchor="middle" font-size="12">serial port</text>
+    <text x="908" y="304" font-size="12">Pin 2 (RXD)</text>
+    <text x="908" y="364" font-size="12">Pin 4 (TXD)</text>
+    <text x="908" y="414" font-size="12">Pin 3 (GND)</text>
+    <text x="908" y="440" font-size="12" fill="#444">Pin 1 (CD): not used</text>
+    <text x="772" y="322" font-size="11" fill="#444">to CoCo, ±5 V</text>
+    <text x="772" y="382" font-size="11" fill="#444">from CoCo, ±12 V OK</text>
+  </g>
+
+  <!-- notes -->
+  <rect x="40" y="672" width="1020" height="128" fill="#f4f4f4" stroke="#999"/>
+  <g font-size="13">
+    <text x="56" y="696" font-weight="bold">Notes</text>
+    <text x="56" y="718">• All five capacitors are 0.1 µF ceramic (marked 104). All grounds are one common ground.</text>
+    <text x="56" y="738">• Unused LTC1327 pins left open: 7–12, 14–16, 18, 20–22. Pins 13, 19 and 23 are tied to 3.3 V so they don't float.</text>
+    <text x="56" y="758">• No divider resistors: the chip runs on 3.3 V, so its TTL output can't exceed the Pico's 3.3 V input. Measured: tip 3.26 V, DIN 2 idle −5.19 V.</text>
+    <text x="56" y="778">• Power on: adapter first, then plug into the Pico. Power off: unplug from the Pico first, then the adapter.</text>
+    <text x="56" y="796">• The Pico's TTL jack must be at 1200 baud (ABAUD 1200, saved with the TXDELAY trick).</text>
+  </g>
+</svg>

@@ -11,8 +11,13 @@ It wakes up the Pocket Pico by itself and shows the `cmd:` prompt.
 ![PicoTerm on a CoCo 3, talking to a Pocket Pico](docs/images/picoterm-running.webp)
 
 Written in 6809 assembly. Needs a CoCo 3 with Disk BASIC (tested on a real
-CoCo 3 with a CoCo SDC) and an RS-232 level converter cable (see
-[docs/cable.md](docs/cable.md)).
+CoCo 3 with a CoCo SDC) and an RS-232 level converter cable. My cable uses an
+LTC1327 chip running on 3.3 V; [docs/cable.md](docs/cable.md) has its
+schematic, parts, connections and meter readings, plus two other ways to build
+one. A 3D-printable case for the board is in [enclosure/](enclosure).
+
+Short video of PicoTerm and the LTC1327 cable working on a real CoCo 3:
+[youtu.be/UPxobzx4A28](https://youtu.be/UPxobzx4A28)
 
 ## Using it
 
@@ -95,6 +100,14 @@ Tested with lwtools 4.24.
 - Memory: code $5000, variables $4F00, receive buffer $4E00.
 - On exit it puts back the FIRQ vector, MMU, PIA interrupts, palette and CPU
   speed, and the launcher's WIDTH 32 resets the screen.
+
+## Credits
+
+- The Pocket Pico and its Pico TNC firmware are by Peter, KF7PSM, who also
+  donated the ICL232 test cable PicoTerm was first tested with and the LTC1327
+  chip in the finished cable.
+- PicoTerm was written with the help of Claude, an AI assistant, which wrote
+  the assembly code and tested it in an emulator.
 
 ## License
 
