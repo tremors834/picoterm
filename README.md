@@ -75,6 +75,7 @@ to 1200 and make it stick.
 - `mkdsk.py` - builds the `.DSK`
 - `test/` - emulator test kit (MAME, a stand-in ROM and a fake Pico)
 - `docs/` - cable wiring, Pocket Pico 1200 baud setup, printable quick reference
+- `enclosure/` - 3D-printable case (OpenSCAD + STL) for my LTC1327 converter board
 
 ## Building
 
